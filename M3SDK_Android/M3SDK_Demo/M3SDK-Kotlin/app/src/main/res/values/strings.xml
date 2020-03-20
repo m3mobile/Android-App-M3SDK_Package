@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">M3SDK_Demo</string>
+
+    <string name="demo_title">M3 Android Demo</string>
+    <string name="button_key_test">Key Demo</string>
+    <string name="button_scanner_test">Scanner Demo</string>
+    <string name="intent_example">Intent Scanner</string>
+    <string name="aidl_example">2D AIDL Scanner</string>
+    <string name="aidl_example_1d">1D AIDL Scanner</string>
+
+    <string name="version">v.0.0.2 2020-02-25</string>
+
+    <string name="scan_start">Read</string>
+    <string name="scan_stop">Cancel</string>
+    <string name="scan_enable">Enable</string>
+    <string name="scan_disable">Disable</string>
+    <string name="scan_is_enable">Is</string>
+
+    <string name="getparam">Get</string>
+    <string name="setparam">Set</string>
+    <string name="pnum">Number</string>
+    <string name="pval">Value</string>
+    <string name="Params">Parameters</string>
+    <string name="Params_byte">Parameters (Hex)</string>
+    <string name="blank"></string>
+
+</resources>

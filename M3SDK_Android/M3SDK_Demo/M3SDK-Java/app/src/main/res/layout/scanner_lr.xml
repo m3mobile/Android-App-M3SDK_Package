@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"> 
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LongRange Scanner"
+        android:textSize="20dp" />
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+    	<Button 
+	        android:id="@+id/enable_intent"
+	        android:layout_width="wrap_content"        
+	        android:layout_height="wrap_content"
+	        android:text="@string/scan_enable"/>
+	    
+	    <Button 
+	        android:id="@+id/disable_intent"
+	        android:layout_width="wrap_content"        
+	        android:layout_height="wrap_content"
+	        android:text="@string/scan_disable"/>
+
+	    <Button
+	        android:id="@+id/startread_intent"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/scan_start"/>
+
+	    <Button
+	        android:id="@+id/stopread_intent"
+	        android:layout_width="wrap_content"        
+	        android:layout_height="wrap_content"
+	        android:text="@string/scan_stop"/>	    
+	        
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/scanresult_intent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+		android:textSize="25sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="20dp" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  Sound"
+        android:textSize="15dp"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+		
+        <RadioGroup 
+            android:id="@+id/radio_sound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <RadioButton 
+                android:id="@+id/sound_none"
+                android:text="None"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton 
+                android:id="@+id/sound_beep"
+                android:text="Beep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton 
+                android:id="@+id/sound_dingdong"
+                android:text="Ding-Dong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+	     	
+	    <CheckBox 
+	        android:id="@+id/vibration_mode"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Vibration" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  Output Mode"
+        android:textSize="15dp"/>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+		
+        <RadioGroup 
+            android:id="@+id/radio_output_mode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <RadioButton 
+                android:id="@+id/output_mode_copyandpaste"
+                android:text="Copy Paste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton 
+                android:id="@+id/output_mode_key"
+                android:text="Key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton 
+                android:id="@+id/output_mode_none"
+                android:text="None"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+    </LinearLayout>
+    
+    
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  End Character"
+        android:textSize="15dp"/>
+     
+     	<RadioGroup
+            android:id="@+id/radio_end_mode"
+     	    android:layout_width="match_parent"
+     	    android:layout_height="match_parent"
+     	    android:orientation="vertical" >
+
+     	    <RadioButton
+     	        android:id="@+id/end_enter"
+     	        android:layout_width="wrap_content"
+     	        android:layout_height="wrap_content"
+     	        android:text="Enter" />
+
+     	    <RadioButton
+     	        android:id="@+id/end_space"
+     	        android:layout_width="wrap_content"
+     	        android:layout_height="wrap_content"
+     	        android:text="Space" />
+
+     	    <RadioButton
+     	        android:id="@+id/end_tab"
+     	        android:layout_width="wrap_content"
+     	        android:layout_height="wrap_content"
+     	        android:text="Tab" />
+
+     	    <RadioButton
+     	        android:id="@+id/end_none"
+     	        android:layout_width="wrap_content"
+     	        android:layout_height="wrap_content"
+     	        android:text="None" />
+
+     	    <RadioButton
+     	        android:id="@+id/end_key_enter"
+     	        android:layout_width="wrap_content"
+     	        android:layout_height="wrap_content"
+     	        android:text="Key enter" />
+
+     	    <RadioButton
+     	        android:id="@+id/end_key_space"
+     	        android:layout_width="wrap_content"
+     	        android:layout_height="wrap_content"
+     	        android:text="Key space" />
+
+     	    <RadioButton
+     	        android:id="@+id/end_key_tab"
+     	        android:layout_width="wrap_content"
+     	        android:layout_height="wrap_content"
+     	        android:text="Key tab" />
+     	</RadioGroup>
+        
+     	        
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView_prefix"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Prefix"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView_postfix"
+            android:text="Postfix"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/edit_prefix"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/blank" />
+        
+        <EditText
+            android:id="@+id/edit_postfix"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/blank" />
+        
+        <Button
+            android:id="@+id/buttonSet_fix"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Set Fix" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

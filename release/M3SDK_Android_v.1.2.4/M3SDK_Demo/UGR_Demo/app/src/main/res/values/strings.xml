@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RFID-Demo</string>
+    <string name="tags_count">TAGS Count\n%d</string>
+    <string name="button_lock">Lock</string>
+    <string name="version">v.1.0.1 2019-07-29</string>
+</resources>

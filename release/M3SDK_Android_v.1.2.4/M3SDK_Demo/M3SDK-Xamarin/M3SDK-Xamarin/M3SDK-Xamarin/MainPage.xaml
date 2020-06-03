@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="M3SDK_Xamarin.MainPage">
+
+    <StackLayout>
+        <Label Text="M3Mobile Scanner Test" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" IsVisible="True" TextColor="#000000" />
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Enable" WidthRequest="150" Clicked="Button_Clicked_Enable"/>
+            <Button Text="Disable" WidthRequest="150" Clicked="Button_Clicked_Disable"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Param" WidthRequest="100"/>
+            <Label Text="Value" WidthRequest="100"/>
+            <Button Text="GET" WidthRequest="100" Clicked="Button_Clicked_GetParam"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Editor x:Name="edParam" Text="" WidthRequest="100"/>
+            <Editor x:Name="edValue" Text="" WidthRequest="100"/>
+            <Button Text="SET" WidthRequest="100" Clicked="Button_Clicked_SetParam"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Start Decode" WidthRequest="150" Clicked="Button_Clicked_Start" />
+            <Button Text="Stop Decode" WidthRequest="150" Clicked="Button_Clicked_Stop" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Key Disable" VerticalOptions="Center"/>
+            <CheckBox x:Name="chkKeyDisable" VerticalOptions="Center" CheckedChanged="chkKeyDisable_CheckedChanged_KeyDisable"/>
+        </StackLayout>
+        <ListView x:Name="listView_scanned" />
+    </StackLayout>
+
+</ContentPage>

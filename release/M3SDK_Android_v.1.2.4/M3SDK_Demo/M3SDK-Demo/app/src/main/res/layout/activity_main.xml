@@ -1,0 +1,144 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.m3.m3sdk_demo.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center"
+            android:text="@string/demo_title"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/button_demo_key"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_key_test" />
+
+        <Button
+            android:id="@+id/button_demo_system_sdk"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="System SDK" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/button_demo_scanner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_scanner_test" />
+
+        <Button
+            android:id="@+id/button_demo_scanner_intent"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/intent_example" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/button_demo_scanner_1d_aidl"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/aidl_example_1d"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/button_demo_scanner_aidl"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/aidl_example"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/button_demo_scanner_honey"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Honey Scanner" />
+
+        <Button
+            android:id="@+id/button_demo_scanner_lr"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="LongRange Scanner"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp">
+        <Button
+            android:id="@+id/button_demo_image_capture"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Image Capture" />
+        <Button
+            android:id="@+id/button_demo_preview"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="AIDL Preview" />
+         />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="197dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView_Version"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|top"
+            android:text="@string/version"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

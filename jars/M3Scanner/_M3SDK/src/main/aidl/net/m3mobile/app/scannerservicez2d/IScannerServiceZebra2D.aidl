@@ -26,4 +26,6 @@ interface IScannerServiceZebra2D {
     void registerScannerCallback(IScannerCallback callback);
     void unregisterScannerCallback(IScannerCallback callback);
     boolean isEnable();
+
+    void setMultipleCount(int count);
 }

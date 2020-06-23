@@ -260,6 +260,15 @@ public class ScannerFunctions_2D extends ScannerFunctions implements ServiceConn
         return bEnable;
     }
 
+    @Override
+    public void setMultipleCount(int count) {
+        try {
+            m2DService.setMultipleCount(count);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void addListener(BarcodeListener2 bl) {
         if (_listeners == null) {
             _listeners = new HashSet<>();

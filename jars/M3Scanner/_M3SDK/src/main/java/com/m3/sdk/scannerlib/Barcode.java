@@ -103,6 +103,10 @@ public class Barcode {
 		_function.setReadMode(mode.ordinal());
 	}
 
+	public void setMultipleCount(int count){
+		_function.setMultipleCount(count);
+	}
+
 	// 0: Enable, 1: all Disable (Function Call and Trigger Key), 2: Key Disable
 	public void setScannerTriggerMode(DataType.SCAN_TRIGGER mode){
 		_function.setScannerTriggerMode(mode.ordinal());

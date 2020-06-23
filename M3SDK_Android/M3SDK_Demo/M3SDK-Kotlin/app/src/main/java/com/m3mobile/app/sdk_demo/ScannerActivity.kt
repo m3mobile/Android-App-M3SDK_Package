@@ -4,11 +4,14 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.SettingsSlicesContract
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.CompoundButton
 
 import android.view.View.OnClickListener
+import android.widget.EditText
 import kotlinx.android.synthetic.main.scanner_intent.*
 
 import com.m3.sdk.scannerlib.Barcode
@@ -130,7 +133,9 @@ class ScannerActivity : Activity(), BarcodeListener2, View.OnClickListener {
         read_mode_async.setOnClickListener(onReadModeClick)
         read_mode_sync.setOnClickListener(onReadModeClick)
         read_mode_continue.setOnClickListener(onReadModeClick)
+        read_mode_multiple.setOnClickListener(onReadModeClick)
         read_mode_async.isChecked = true
+        editMultipleCount_intent.addTextChangedListener(onMultiTextChangedListener)
 
         // output mode
         output_mode_copyandpaste.setOnClickListener(onOutputModeListener)
@@ -247,12 +252,41 @@ class ScannerActivity : Activity(), BarcodeListener2, View.OnClickListener {
 
     var onReadModeClick = OnClickListener { view ->
         var readMode = DataType.READ_MODE.ASYNC
-        when(view){
+        when (view) {
             read_mode_async -> readMode = DataType.READ_MODE.ASYNC
             read_mode_sync -> readMode = DataType.READ_MODE.SYNC
             read_mode_continue -> readMode = DataType.READ_MODE.CONTINUE
+            read_mode_multiple -> readMode = DataType.READ_MODE.MULTIPLE
         }
         _barcode.setReadMode(readMode)
+        var value = 2
+        try {
+            value = Integer.parseInt(editMultipleCount_intent.text.toString())
+            _barcode.setMultipleCount(value)
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
+    }
+
+    val onMultiTextChangedListener = object : TextWatcher {
+        override fun afterTextChanged(p0: Editable?) {
+        }
+
+        override fun beforeTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int) {
+        }
+
+        override fun onTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int) {
+            if (radio_read_mode.indexOfChild(findViewById(radio_read_mode.checkedRadioButtonId)) == 3) {
+                _barcode.setReadMode(DataType.READ_MODE.MULTIPLE)
+                var value = 2
+                try {
+                    value = Integer.parseInt(editMultipleCount_intent.text.toString())
+                    _barcode.setMultipleCount(value)
+                } catch (ex: Exception) {
+                    ex.printStackTrace()
+                }
+            }
+        }
     }
 
     var onOutputModeListener = OnClickListener { view ->

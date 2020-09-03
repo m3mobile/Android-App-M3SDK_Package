@@ -23,6 +23,8 @@ public abstract class ScannerFunctions {
 
     public abstract boolean isEnable();
 
+    public abstract void setMultipleCount(int count);
+
     public abstract void addListener(BarcodeListener2 listener);
     public abstract void removeListener(BarcodeListener2 listener);
 }

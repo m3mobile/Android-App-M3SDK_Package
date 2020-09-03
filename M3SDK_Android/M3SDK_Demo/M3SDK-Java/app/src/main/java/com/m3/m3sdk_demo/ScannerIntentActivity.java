@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class ScannerIntentActivity extends Activity {
@@ -29,6 +32,8 @@ public class ScannerIntentActivity extends Activity {
 	private EditText edValNum = null;
 	private EditText edPrefix;
 	private EditText edPostfix;
+	private EditText edMulCnt;
+	private RadioGroup radio_read_mode;
 
 
 	@Override
@@ -98,14 +103,19 @@ public class ScannerIntentActivity extends Activity {
 		key.setChecked(true);
 		
 		// read mode
+		radio_read_mode = (RadioGroup)findViewById(R.id.radio_read_mode);
 		RadioButton read_async = (RadioButton)findViewById(R.id.read_mode_async);
 		RadioButton read_sync = (RadioButton)findViewById(R.id.read_mode_sync);
 		RadioButton read_continue = (RadioButton)findViewById(R.id.read_mode_continue);
+		RadioButton read_multiple = (RadioButton)findViewById(R.id.read_mode_multiple);
 		read_async.setOnClickListener(OnReadClickListener);
 		read_sync.setOnClickListener(OnReadClickListener);
 		read_continue.setOnClickListener(OnReadClickListener);
+		read_multiple.setOnClickListener(OnReadClickListener);
 		read_async.setChecked(true);
-		
+		edMulCnt = (EditText)findViewById(R.id.editMultipleCount_intent);
+		edMulCnt.addTextChangedListener(OnMultiTextChangedListener);
+
 		// output mode
 		RadioButton output_cnp = (RadioButton)findViewById(R.id.output_mode_copyandpaste);
 		RadioButton output_key = (RadioButton)findViewById(R.id.output_mode_key);
@@ -274,31 +284,62 @@ public class ScannerIntentActivity extends Activity {
 	};
 
 	RadioButton.OnClickListener OnReadClickListener = new RadioButton.OnClickListener(){
-
 		@Override
 		public void onClick(View v) {
-			
-
 			Intent intent = new Intent(ConstantValues.SCANNER_ACTION_SETTING_CHANGE);
-			intent.putExtra("setting", "read_mode");		
-			
-			switch(v.getId()){
-			case R.id.read_mode_async:
-				intent.putExtra("read_mode_value", 0);	
-				break;
-			case R.id.read_mode_sync:
-				intent.putExtra("read_mode_value", 1);	
-				break;
-			case R.id.read_mode_continue:
-				intent.putExtra("read_mode_value", 2);	
-				break;
+			intent.putExtra("setting", "read_mode");
+			switch (v.getId()) {
+				case R.id.read_mode_async:
+					intent.putExtra("read_mode_value", 0);
+					break;
+				case R.id.read_mode_sync:
+					intent.putExtra("read_mode_value", 1);
+					break;
+				case R.id.read_mode_continue:
+					intent.putExtra("read_mode_value", 2);
+					break;
+				case R.id.read_mode_multiple:
+					intent.putExtra("read_mode_value", 3);
+					break;
 			}
-			
-			mContext.sendOrderedBroadcast(intent, null);
+			int val = 2;
+			try {
+				val = Integer.parseInt(edMulCnt.getText().toString());
+				intent.putExtra("read_mode_multiple_count", val);
+				mContext.sendOrderedBroadcast(intent, null);
+			} catch (NumberFormatException nx) {
+				nx.printStackTrace();
+			}
 		}
-		
 	};
-	
+
+	TextWatcher OnMultiTextChangedListener = new TextWatcher() {
+		@Override
+		public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+		}
+
+		@Override
+		public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+			if (radio_read_mode.indexOfChild(findViewById(radio_read_mode.getCheckedRadioButtonId())) == 3) {
+				Intent intent = new Intent(ConstantValues.SCANNER_ACTION_SETTING_CHANGE);
+				intent.putExtra("setting", "read_mode");
+				intent.putExtra("read_mode_value", 3);
+				int val = 2;
+				try {
+					val = Integer.parseInt(edMulCnt.getText().toString());
+					intent.putExtra("read_mode_multiple_count", val);
+					mContext.sendOrderedBroadcast(intent, null);
+				} catch (NumberFormatException nx) {
+					nx.printStackTrace();
+				}
+			}
+		}
+
+		@Override
+		public void afterTextChanged(Editable editable) {
+		}
+	};
+
 	RadioButton.OnClickListener OnOutputClickListener = new RadioButton.OnClickListener(){
 
 		@Override

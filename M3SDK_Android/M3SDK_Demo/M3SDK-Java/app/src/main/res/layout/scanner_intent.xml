@@ -225,10 +225,36 @@
                 android:text="continue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+			<RadioButton
+				android:id="@+id/read_mode_multiple"
+				android:text="multiple"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
         </RadioGroup>
 
     </LinearLayout>
-    
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="  Multiple Count"
+		android:textSize="15dp"/>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" >
+
+		<EditText
+			android:id="@+id/editMultipleCount_intent"
+			android:layout_width="100dp"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:inputType="numberSigned"
+			android:text="@string/blank" />
+
+	</LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

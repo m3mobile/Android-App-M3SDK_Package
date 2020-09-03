@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View.OnClickListener
 import android.widget.CompoundButton
@@ -66,8 +68,9 @@ class ScannerIntentActivity : Activity()  {
         read_mode_async.setOnClickListener(onReadModeClick)
         read_mode_sync.setOnClickListener(onReadModeClick)
         read_mode_continue.setOnClickListener(onReadModeClick)
+        read_mode_multiple.setOnClickListener(onReadModeClick)
         read_mode_async.isChecked = true
-
+        editMultipleCount_intent.addTextChangedListener(onMultiTextChangedListener)
         // output mode
         output_mode_copyandpaste.setOnClickListener(onOutputModeListener)
         output_mode_key.setOnClickListener(onOutputModeListener)
@@ -200,8 +203,20 @@ class ScannerIntentActivity : Activity()  {
             read_mode_async -> intent.putExtra("read_mode_value", 0)
             read_mode_sync -> intent.putExtra("read_mode_value", 1)
             read_mode_continue -> intent.putExtra("read_mode_value", 2)
+            read_mode_multiple -> intent.putExtra("read_mode_value", 3)
         }
         sendOrderedBroadcast(intent, null)
+    }
+
+    val onMultiTextChangedListener = object : TextWatcher {
+        override fun afterTextChanged(p0: Editable?) {
+        }
+
+        override fun beforeTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int) {
+        }
+
+        override fun onTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int) {
+        }
     }
 
     var onOutputModeListener = OnClickListener { view ->

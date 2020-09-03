@@ -36,13 +36,18 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/scan_start"/>
 
-	    <Button
-	        android:id="@+id/stopread_intent"
-	        android:layout_width="wrap_content"        
-	        android:layout_height="wrap_content"
-	        android:text="@string/scan_stop"/>	    
-	        
-    </LinearLayout>
+		<Button
+			android:id="@+id/stopread_intent"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/scan_stop"/>
+		<Button
+			android:id="@+id/is_opened_intent"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/scan_is_enable"/>
+
+	</LinearLayout>
     
     <TextView 
         android:id="@+id/scanresult_intent"

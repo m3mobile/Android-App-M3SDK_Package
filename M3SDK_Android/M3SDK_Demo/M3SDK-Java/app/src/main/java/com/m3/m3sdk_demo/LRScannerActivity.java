@@ -49,6 +49,8 @@ public class LRScannerActivity extends Activity {
 		btnDisable.setOnClickListener(OnButtonClickListener);
 		Button btnSnapShot = (Button)findViewById(R.id.button_snapShot);
 		btnSnapShot.setOnClickListener(OnButtonClickListener);
+		Button btnIsOpend = (Button)findViewById(R.id.is_opened_intent);
+		btnIsOpend.setOnClickListener(OnButtonClickListener);
 
 		mTvResult = (TextView)findViewById(R.id.scanresult_intent);
 		edSymNum = (EditText)findViewById(R.id.editPnum_intent);
@@ -105,11 +107,10 @@ public class LRScannerActivity extends Activity {
 		// intent filter
 		IntentFilter filter = new IntentFilter();
 		filter.addAction(ConstantValues.SCANNER_ACTION_BARCODE);
-		filter.addAction(ConstantValues.SCANNER_ACTION_IS_ENABLE_ANSWER);
+		filter.addAction(ConstantValues.LRSCANNER_ACTION_STATUS);
 		filter.addAction(ConstantValues.LRSCANNER_ACTION_TAKE_PICTURE_RESULT);
 		registerReceiver(BarcodeIntentBroadcast,filter);
 
-		sendBroadcast(new Intent(ConstantValues.SCANNER_ACTION_IS_ENABLE));
 	}
 
 	OnClickListener OnButtonClickListener = new OnClickListener()
@@ -139,6 +140,10 @@ public class LRScannerActivity extends Activity {
 				String strPath = edSnapShotPath.getText().toString();
 				intent = new Intent(ConstantValues.LRSCANNER_ACTION_TAKE_PICTURE, null);
 				intent.putExtra(ConstantValues.SCANNER_EXTRA_TAKE_PICTURE_PATH, strPath);
+				break;
+			case R.id.is_opened_intent:
+				Log.i(TAG, "is Opened");
+				intent = new Intent(ConstantValues.LRSCANNER_ACTION_IS_ENABLE);
 				break;
 			}
 			mContext.sendOrderedBroadcast(intent, null);
@@ -331,10 +336,22 @@ public class LRScannerActivity extends Activity {
 					}
 				}	
 				
-			}else if(intent.getAction().equals(ConstantValues.SCANNER_ACTION_IS_ENABLE_ANSWER)){
-				boolean bEnable = intent.getBooleanExtra(ConstantValues.SCANNER_EXTRA_IS_ENABLE_ANSWER, false);
-
-				Log.i(TAG,"is enable scanner [" + bEnable + "]");
+			}else if(intent.getAction().equals(ConstantValues.LRSCANNER_ACTION_STATUS)){
+				String strMessage = "";
+				module = intent.getStringExtra(ConstantValues.SCANNER_EXTRA_MODULE_TYPE);
+				int nStatus = intent.getIntExtra(ConstantValues.SCANNER_EXTRA_STATUS, 0);
+				Log.i(TAG, "Status: " + nStatus + (nStatus & ConstantValues.SCANNER_STATUS_SCANNER_OPEN_SUCCESS));
+				if((nStatus & ConstantValues.SCANNER_STATUS_SCANNER_OPEN_SUCCESS) == ConstantValues.SCANNER_STATUS_SCANNER_OPEN_SUCCESS){
+					strMessage += "Scanner Open Success\n";
+				}else if((nStatus & ConstantValues.SCANNER_STATUS_SCANNER_OPEN_FAIL) == ConstantValues.SCANNER_STATUS_SCANNER_OPEN_FAIL){
+					strMessage += "Scanner Open Fail\n";
+				}else if((nStatus & ConstantValues.SCANNER_STATUS_SCANNER_CLOSE_SUCCESS) == ConstantValues.SCANNER_STATUS_SCANNER_CLOSE_SUCCESS){
+					strMessage += "Scanner Close Success\n";
+				}else if((nStatus & ConstantValues.SCANNER_STATUS_SCANNER_CLOSE_FAIL) == ConstantValues.SCANNER_STATUS_SCANNER_CLOSE_FAIL){
+					strMessage += "Scanner Open Fail\n";
+				}
+				strMessage += "Scanner: " + module;
+				mTvResult.setText(strMessage);
 			}else if(intent.getAction().equals(ConstantValues.LRSCANNER_ACTION_TAKE_PICTURE_RESULT)){
 				boolean bSuccess = intent.getBooleanExtra(ConstantValues.LRSCANNER_EXTRA_TAKE_PICTURE_RESULT, false);
 

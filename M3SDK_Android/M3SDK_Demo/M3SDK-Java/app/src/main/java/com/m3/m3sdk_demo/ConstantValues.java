@@ -27,9 +27,12 @@ public class ConstantValues {
     public static final String SCANNER_EXTRA_BARCODE_DATA_LENGTH = "m3scannerdata_length";	// add 2017-01-31	after ScanEmul 1.3.0
     public static final String SCANNER_EXTRA_BARCODE_DEC_COUNT = "m3scanner_dec_count"; // add 2018-10-08   after ScanEmul 2.2.3
 
+    public static final String  LRSCANNER_ACTION_IS_ENABLE = "com.android.server.lrscannerservice.m3onoff.ison";
     public static final String SCANNER_ACTION_IS_ENABLE = "com.android.server.scannerservice.m3onoff.ison";
     public static final String SCANNER_ACTION_IS_ENABLE_ANSWER = "com.android.server.scannerservice.m3onoff.ison.answer";
     public static final String SCANNER_EXTRA_IS_ENABLE_ANSWER = "ison";
+
+    public static final String LRSCANNER_ACTION_STATUS = "lrscanemul.action.status";
 
     // add 20190730 after ScanEmul 2.4.6
     public static final String SCANNER_ACTION_STATUS = "scanemul.action.status";

@@ -44,7 +44,7 @@ import java.util.HashMap;
  * Created by M3 on 2017-12-11.
  */
 
-public class ResultWindow_aidl extends AppCompatActivity{
+public class ResultWindow_aidl extends AppCompatActivity {
     private final String TAG = "ResultWindow_aidl";
 
     ListView mListInventory;

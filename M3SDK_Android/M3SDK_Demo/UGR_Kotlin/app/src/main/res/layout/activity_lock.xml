@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock/Kill"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"
+        android:paddingBottom="10sp"
+        android:textColor="@color/colorAccent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:paddingTop="10sp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp"
+        android:text="Lock"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10sp"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:text="Kill Pwd"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:textSize="17sp"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_killpwd"
+            android:layout_weight="2"
+            android:entries="@array/array_permission"></Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10sp"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:text="Acc Pwd"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:textSize="17sp"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_accpwd"
+            android:layout_weight="2"
+            android:entries="@array/array_permission"></Spinner>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10sp"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:text="EPC"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:textSize="17sp"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_epc"
+            android:layout_weight="2"
+            android:entries="@array/array_permission"></Spinner>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10sp"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:text="TID"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:textSize="17sp"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_tid"
+            android:layout_weight="2"
+            android:entries="@array/array_permission"></Spinner>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10sp"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:text="USER"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:textSize="17sp"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_user"
+            android:layout_weight="2"
+            android:entries="@array/array_permission"></Spinner>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="10sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="90sp"
+            android:layout_height="wrap_content"
+            android:text="Acc Pwd"
+            android:fontFamily="sans-serif"
+            android:textSize="17sp"/>
+
+        <EditText
+            android:layout_width="160sp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/edit_lock_access_pwd"
+            android:ems="6"
+            android:textSize="15sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/button_lock"
+            android:text="@string/button_lock"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:paddingTop="10sp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp"
+        android:text="Kill"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="90sp"
+            android:layout_height="wrap_content"
+            android:text="Kill Pwd"
+            android:fontFamily="sans-serif"
+            android:textSize="17sp"/>
+
+        <EditText
+            android:layout_width="160sp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/edit_kill_pwd"
+            android:ems="6"
+            android:textSize="15sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_kill"
+            android:text="Kill"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:paddingTop="10sp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textLockResult"
+        android:layout_marginTop="10sp"
+        android:layout_gravity="right"
+        android:text=""
+        android:textSize="17sp"/>
+
+</LinearLayout>

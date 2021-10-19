@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="rfid_region">
+        <item>KOREA_NEW</item>
+        <item>KOREA_WEAK</item>
+        <item>KOREA_OLD</item>
+        <item>USA</item>
+        <item>EURO</item>
+        <item>EURO_NEW</item>
+        <item>JAPAN</item>
+        <item>CHINA</item>
+        <item>AUSTRALIA</item>
+        <item>BRAZIL</item>
+        <item>MALAYSIA</item>
+        <item>TAIWAN</item>
+    </string-array>
+    <string-array name="rfid_region_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="array_membank">
+        <item>RESERVED</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>USER</item>
+    </string-array>
+    <string-array name="array_permission">
+        <item>ACCESSIBLE</item>
+        <item>ALWAYS ACCESSIBLE</item>
+        <item>SECURED ACCESSIBLE</item>
+        <item>ALWAYS NOT ACCESSIBLE</item>
+        <item>NO CHANGE</item>
+    </string-array>
+</resources>

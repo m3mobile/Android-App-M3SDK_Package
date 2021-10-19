@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="RFID Config">
+        <ListPreference android:title="Region"
+            android:key="region"
+            android:entries="@array/rfid_region"
+            android:entryValues="@array/rfid_region_values"
+            android:defaultValue="0"/>
+        <EditTextPreference android:title="Power"
+            android:key="power"
+            android:inputType="phone"
+            android:editable="true"/>
+
+        <EditTextPreference
+            android:title="Version"
+            android:key="version"
+            android:maxLines="4"
+            android:singleLine="false"
+            android:enabled="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>

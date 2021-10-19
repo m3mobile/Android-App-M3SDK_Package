@@ -22,4 +22,6 @@ interface IUGRTestService {
     void setEnable(int nEnable, boolean bModule);
     void setIntentEnable(boolean bEnable);
     void setHexCode(boolean bEnable);
+    // 2020-08-14 1.2.19
+    void updateAllOption();
 }

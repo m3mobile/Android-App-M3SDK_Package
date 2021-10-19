@@ -17,11 +17,11 @@ import java.util.HashMap;
 
 public class TagAdapter extends SimpleAdapter{
     Context context;
-    private ArrayList<HashMap<String, UhfTag>> arrayList;
+    private ArrayList<HashMap<String, UHFTag>> arrayList;
     private int resource; // Layout ID
 
 
-    public TagAdapter(Context context, ArrayList<HashMap<String, UhfTag>> data, int resource, String[] from, int[] to) {
+    public TagAdapter(Context context, ArrayList<HashMap<String, UHFTag>> data, int resource, String[] from, int[] to) {
         super(context, data, resource, from, to);
 
         this.context = context;
@@ -36,8 +36,8 @@ public class TagAdapter extends SimpleAdapter{
             convertView = inflater.inflate(resource, null);
         }
 
-        HashMap<String, UhfTag> hm = arrayList.get(position);
-        UhfTag epc = (UhfTag)hm.values().toArray()[0];
+        HashMap<String, UHFTag> hm = arrayList.get(position);
+        UHFTag epc = (UHFTag)hm.values().toArray()[0];
 
         TextView title = (TextView)convertView.findViewById(R.id.txtEPC);
         TextView reads = (TextView)convertView.findViewById(R.id.txtCount);

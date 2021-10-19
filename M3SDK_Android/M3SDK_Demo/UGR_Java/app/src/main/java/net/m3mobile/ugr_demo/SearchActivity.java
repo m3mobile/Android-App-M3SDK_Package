@@ -33,7 +33,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     boolean mIsReading = false;
 
-    private ArrayList<HashMap<String, UhfTag>> mTAGs;
+    private ArrayList<HashMap<String, UHFTag>> mTAGs;
     private ResultWindowReceiver resultReceiver;
 
     private Runnable mRunnable;
@@ -164,11 +164,11 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 if(epc != null && !strSearchValue.isEmpty() && epc.contains(strSearchValue)) {
                     boolean existTag = false;
 
-                    HashMap<String, UhfTag> hashMap = new HashMap<>();
-                    hashMap.put(epc, new UhfTag(epc, 1));
+                    HashMap<String, UHFTag> hashMap = new HashMap<>();
+                    hashMap.put(epc, new UHFTag(epc, 1));
 
                     for(int i = 0; i < mTAGs.size(); i++) {
-                        HashMap<String, UhfTag> tm = mTAGs.get(i);
+                        HashMap<String, UHFTag> tm = mTAGs.get(i);
                         if(tm != null) {
                             if(tm.containsKey(epc)) {
                                 tm.get(epc).Reads++;

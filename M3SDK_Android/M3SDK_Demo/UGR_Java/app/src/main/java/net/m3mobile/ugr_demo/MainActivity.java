@@ -5,6 +5,7 @@
  *  v.1.0.1 2019-07-29  한재윤     code.5  ResultWindow_aidl activity 추가
  *  v.1.0.2 2020-01-20  한재윤     code.6  aidl method 추가
  *  v.1.0.3 2020-03-16  한재윤     code.7  aidl callback 에 onInventoryRssi 추가
+ *  v.1.0.4 2021-10-19  한재윤     code.8  ResultWindow_aidl 안정화
  */
 
 package net.m3mobile.ugr_demo;

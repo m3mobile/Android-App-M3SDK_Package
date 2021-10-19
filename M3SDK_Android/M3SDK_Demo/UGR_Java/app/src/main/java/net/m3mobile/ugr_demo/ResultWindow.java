@@ -50,7 +50,7 @@ public class ResultWindow extends AppCompatActivity {
 
     boolean mIsReading = false;
 
-    private ArrayList<HashMap<String, UhfTag>> mTAGs;
+    private ArrayList<HashMap<String, UHFTag>> mTAGs;
     private TagAdapter adapter;
 
     private ResultWindowReceiver resultReceiver;
@@ -61,7 +61,7 @@ public class ResultWindow extends AppCompatActivity {
 
     static public boolean bNeedConnect = false;
 
-    private ArrayList<UhfTag> uhfTagArrayList;
+    private ArrayList<UHFTag> uhfTagArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,10 +149,10 @@ public class ResultWindow extends AppCompatActivity {
                 String strFileName = "/export_" + dayTime.format(new Date(time)) + ".txt";
 
                 for(int i = 0; i < mTAGs.size(); i++) {
-                    HashMap<String, UhfTag> tm = mTAGs.get(i);
+                    HashMap<String, UHFTag> tm = mTAGs.get(i);
 
                     if(tm != null) {
-                        UhfTag epc = (UhfTag)tm.values().toArray()[0];
+                        UHFTag epc = (UHFTag)tm.values().toArray()[0];
 
                         String strTAG = epc.TIME + "    " + epc.EPC;
 
@@ -209,16 +209,16 @@ public class ResultWindow extends AppCompatActivity {
 
             if(intent.getAction().equals(UGRApplication.UGR_ACTION_EPC)) {
                 epc = intent.getExtras().getString(UGRApplication.UGR_EXTRA_EPC_DATA);
-                uhfTagArrayList.add(new UhfTag(epc, 1));
+                uhfTagArrayList.add(new UHFTag(epc, 1));
 
                 if(epc != null) {
                     boolean existTag = false;
 
-                    HashMap<String, UhfTag> hashMap = new HashMap<>();
-                    hashMap.put(epc, new UhfTag(epc, 1));
+                    HashMap<String, UHFTag> hashMap = new HashMap<>();
+                    hashMap.put(epc, new UHFTag(epc, 1));
 
                     for(int i = 0; i < mTAGs.size(); i++) {
-                        HashMap<String, UhfTag> tm = mTAGs.get(i);
+                        HashMap<String, UHFTag> tm = mTAGs.get(i);
                         if(tm != null) {
                             if(tm.containsKey(epc)) {
                                 tm.get(epc).Reads++;

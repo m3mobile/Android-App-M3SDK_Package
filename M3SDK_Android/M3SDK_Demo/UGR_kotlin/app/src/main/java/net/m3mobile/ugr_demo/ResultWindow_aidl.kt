@@ -26,7 +26,7 @@ class ResultWindow_aidl : AppCompatActivity() {
     private var mInventoryTime: TextView? = null
     private var mTvScannerResult: TextView? = null
     private var mIsReading = false
-    private var mTAGs: ArrayList<HashMap<String?, UHFTag>>? = null
+    private var mTAGs: ArrayList<HashMap<String, UHFTag>>? = null
     private var adapter: TagAdapter? = null
     private var resultReceiver: ResultWindowReceiver? = null
     private var mCodeReceiver: BarcodeReceiver? = null
@@ -79,7 +79,7 @@ class ResultWindow_aidl : AppCompatActivity() {
         triggerBoth.isChecked = true
         mTAGs = ArrayList()
         UHFTagArrayList = ArrayList()
-        adapter = TagAdapter(this, mTAGs, R.layout.listview_item_row, null, null)
+        adapter = TagAdapter(this, mTAGs!!, R.layout.listview_item_row, null, null)
         mListInventory.transcriptMode = AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL
         mListInventory.adapter = adapter
         mBtnStart!!.setOnClickListener { view: View? ->
@@ -147,7 +147,7 @@ class ResultWindow_aidl : AppCompatActivity() {
                     UHFTagArrayList!!.add(UHFTag(epc, 1))
                     if (epc != null) {
                         var existTag = false
-                        val hashMap = HashMap<String?, UHFTag>()
+                        val hashMap = HashMap<String, UHFTag>()
                         hashMap[epc] = UHFTag(epc, 1)
                         var i = 0
                         while (i < mTAGs!!.size) {
@@ -437,7 +437,7 @@ class ResultWindow_aidl : AppCompatActivity() {
                     UHFTagArrayList!!.add(UHFTag(epc, 1))
                     if (epc != null) {
                         var existTag = false
-                        val hashMap = HashMap<String?, UHFTag>()
+                        val hashMap = HashMap<String, UHFTag>()
                         hashMap[epc] = UHFTag(epc, 1)
                         for (i in mTAGs!!.indices) {
                             val tm = mTAGs!![i]

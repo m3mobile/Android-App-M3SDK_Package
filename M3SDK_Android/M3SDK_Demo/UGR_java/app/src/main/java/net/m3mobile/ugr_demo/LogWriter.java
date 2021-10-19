@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class LogWriter {
 
-    private static final String TAG = "UGR_Kotlin";
+    private static final String TAG = "UGR_java";
     static int logLevel = 0;
 
     /**

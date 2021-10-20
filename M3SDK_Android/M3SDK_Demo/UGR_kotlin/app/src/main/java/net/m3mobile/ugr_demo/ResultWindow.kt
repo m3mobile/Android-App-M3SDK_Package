@@ -159,7 +159,7 @@ class ResultWindow : AppCompatActivity() {
             val epc: String?
             if (intent.action == UGRApplication.UGR_ACTION_EPC) {
                 epc = intent.extras!!.getString(UGRApplication.UGR_EXTRA_EPC_DATA)
-                uhfTagArrayList!!.add(UHFTag(epc, 1))
+                uhfTagArrayList!!.add(UHFTag(epc!!, 1))
                 if (epc != null) {
                     var existTag = false
                     val hashMap = HashMap<String, UHFTag>()

@@ -434,7 +434,7 @@ class ResultWindow_aidl : AppCompatActivity() {
         m_remoteCallback = object : IUHFServiceCallback.Stub() {
             override fun onInventory(epc: String?) {
                 runOnUiThread(Runnable {
-                    UHFTagArrayList!!.add(UHFTag(epc, 1))
+                    UHFTagArrayList!!.add(UHFTag(epc!!, 1))
                     if (epc != null) {
                         var existTag = false
                         val hashMap = HashMap<String, UHFTag>()

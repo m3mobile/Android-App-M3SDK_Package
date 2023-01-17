@@ -337,6 +337,9 @@ public class Scanner1DAidlActivity extends Activity implements OnClickListener, 
 			 public static final int READ_ASYNC = 0;
 			 public static final int READ_SYNC = 1;
 			 public static final int READ_CONTINUE = 2;
+			 public static final int READ_MULTIPLE = 3;
+			 public static final int READ_PRESENTATION = 4;
+			 public static final int READ_AIMING_AND_RELEASE = 5;
 			 */
 			m1DService.setReadMode(1);
 

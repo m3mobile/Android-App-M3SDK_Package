@@ -151,6 +151,9 @@ public class ScanHoneyActivity extends Activity implements View.OnClickListener,
              public static final int READ_ASYNC = 0;
              public static final int READ_SYNC = 1;
              public static final int READ_CONTINUE = 2;
+             public static final int READ_MULTIPLE = 3;
+             public static final int READ_PRESENTATION = 4;
+             public static final int READ_AIMING_AND_RELEASE = 5;
              */
             mHService.setReadMode(1);
 

@@ -52,4 +52,11 @@ public class ConstantValues {
     public static final String LRSCANNER_ACTION_TAKE_PICTURE = "android.intent.action.LRSCANNER_TAKE_PICTURE";
     public static final String LRSCANNER_ACTION_TAKE_PICTURE_RESULT = "android.intent.action.LRSCANNER_TAKE_PICTURE.result";
     public static final String LRSCANNER_EXTRA_TAKE_PICTURE_RESULT = "take_picture_result";
+
+    // add 20230102 imageCapture
+    public static final String SCANNER_ACTION_TAKE_PICTURE2 = "android.intent.action.SCANNER_TAKE_PICTURE2";
+    public static final String SCANNER_ACTION_TAKE_PICTURE_RESPONSE = "android.intent.action.SCANNER_TAKE_PICTURE_RESPONSE";
+    public static final String SCANNER_EXTRA_TAKE_PICTURE_IMAGE = "take_picture_image";
+    public static final String SCANNER_EXTRA_CLASSIFIER_NUMBER = "classifier_number";
+
 }

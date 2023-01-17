@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -76,7 +77,11 @@ public class ImageCaptureIntentActivity extends Activity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_take_picture:
-                this.sendOrderedBroadcast(new Intent(ConstantValues.SCANNER_ACTION_TAKE_PICTURE), null);
+                if(Build.MODEL.contains("M3SM20")) {
+                    this.sendOrderedBroadcast(new Intent(ConstantValues.SCANNER_ACTION_TAKE_PICTURE2), null);
+                } else {
+                    this.sendOrderedBroadcast(new Intent(ConstantValues.SCANNER_ACTION_TAKE_PICTURE), null);
+                }
                 break;
             default:
                 break;

@@ -26,7 +26,7 @@
     <string name="button_key_apply">Apply</string>
     <string name="button_key_default">Default</string>
 
-    <string name="version">v.2.1.9 2020-06-01</string>
+    <string name="version">v.2.2.0 2023-01-17</string>
 
     <!-- EX25 LR Pistol Grip -->
     <string name="snapshot_path_example">/sdcard/Download/test1.jpg</string>

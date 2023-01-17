@@ -34,7 +34,7 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 	private BarcodeListener mListener = null;
 	private BarcodeManager mManager = null;
 	private Symbology mSymbology = null;
-	
+
 	//ui
 	private TextView mTvResult = null;
 	private EditText edSymNum = null;
@@ -47,18 +47,18 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.scanner);
-		
+
 		mBarcode = new Barcode(this);
 		mManager = new BarcodeManager(this);
 		mSymbology = mBarcode.getSymbologyInstance();
 		//mBarcode.setScanner(true);
-		
+
 		mainScreen();
 
 		Log.i("ScannerTest","onCreate");
 
 		bindScannerService();
-		
+
 		mListener = new BarcodeListener() {
 
 			@Override
@@ -76,8 +76,8 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 			public void onBarcode(String barcode, String codeType) {
 				Log.i("ScannerTest2","result="+barcode);
 				mTvResult.setText("data: " + barcode + " type: " + codeType);
-			}		
-			
+			}
+
 		};
 
 		mManager.addListener(mListener);
@@ -91,7 +91,7 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 		unbindService(this);
 		mManager.removeListener(mListener);
 		mManager.dismiss();
-		
+
 		super.onDestroy();
 	}
 
@@ -115,7 +115,7 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 		edSymNum = (EditText)findViewById(R.id.editPnum);
 		edValNum = (EditText)findViewById(R.id.editPval);
 	}
-	
+
 
 	@Override
 	public void onClick(View vw) {
@@ -135,7 +135,7 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 			Log.d(TAG, "onClick error");
 			e.printStackTrace();
 		}
-		
+
 	}
 
 
@@ -187,7 +187,7 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 		{
 			int num = Integer.parseInt(sn);
 			int val = Integer.parseInt(sv);
-				
+
 			int nResult = m2DService.setScanParameter(num,  val);
 			Log.d(TAG, "setScanParameter result '" + nResult);
 
@@ -201,7 +201,7 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 		}
 		catch (NumberFormatException nx)
 		{
-			nx.printStackTrace();		
+			nx.printStackTrace();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -259,16 +259,18 @@ public class Scanner2DAidlActivity extends Activity implements OnClickListener, 
 			 public static final int READ_SYNC = 1;
 			 public static final int READ_CONTINUE = 2;
 			 public static final int READ_MULTIPLE = 3;
+			 public static final int READ_PRESENTATION = 4;
+			 public static final int READ_AIMING_AND_RELEASE = 5;
 			 */
 			m2DService.setReadMode(1);
-			m2DService.setMultipleCount(2);
 
-            /**
-             * setScannerTriggerMode
-             0 : enable
-             1 : can't use scanner key
-             2 : using only calling api
-             */
+
+			/**
+			 * setScannerTriggerMode
+			 0 : enable
+			 1 : can't use scanner key
+			 2 : using only calling api
+			 */
 			m2DService.setScannerTriggerMode(0);
 		} catch (RemoteException e) {
 			e.printStackTrace();

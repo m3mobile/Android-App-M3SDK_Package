@@ -19,6 +19,7 @@
 // 2020-03-02   v.2.1.8 윤정호      ImageCapture SDK 재추가
 // 2020-03-03           윤정호       Preview ADIL 추가.
 // 2020-06-01	v.2.1.9	전재영	code.19 LR scanner Snapshot 기능 추가
+// 2022-01-17	v.2.2.0	최용범		ConstantValues, ImageCaptureIntent 외 기능추가
 
 package com.m3.m3sdk_demo;
 
@@ -42,7 +43,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		Button btnScanner = (Button)findViewById(R.id.button_demo_scanner);
 		Button btnScannerIntent = (Button)findViewById(R.id.button_demo_scanner_intent);
 		Button btnScannerAidl = (Button)findViewById(R.id.button_demo_scanner_aidl);
@@ -53,7 +54,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		Button btnScannerLR = (Button) findViewById(R.id.button_demo_scanner_lr);
         Button btnImageCapture = (Button)findViewById(R.id.button_demo_image_capture);
         Button btnImagePreview = (Button)findViewById(R.id.button_demo_preview);
-	
+
 		btnScannerIntent.setOnClickListener(this);
 		btnScanner.setOnClickListener(this);
 		btnKey.setOnClickListener(this);
@@ -83,11 +84,11 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		int id = v.getId();
 		if(id == R.id.button_demo_scanner){
-			startActivity(new Intent(MainActivity.this, com.m3.m3sdk_demo.ScannerActivity.class));		
+			startActivity(new Intent(MainActivity.this, com.m3.m3sdk_demo.ScannerActivity.class));
 		}else if(id == R.id.button_demo_scanner_intent){
 			startActivity(new Intent(MainActivity.this, com.m3.m3sdk_demo.ScannerIntentActivity.class));
 		}else if(id == R.id.button_demo_key){
-			startActivity(new Intent(MainActivity.this, com.m3.m3sdk_demo.KeyActivity.class));			
+			startActivity(new Intent(MainActivity.this, com.m3.m3sdk_demo.KeyActivity.class));
 		}else if(id == R.id.button_demo_scanner_aidl){
 			if(Build.MODEL.equals("M3SM10_LTE"))
 				startActivity(new Intent(MainActivity.this, ScannerSM10LTE2DAidlActivity.class));

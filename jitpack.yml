@@ -1,0 +1,2 @@
+before_install:
+  - cd m3mobile/M3SDK_Android/M3SDK_Demo/M3SDK-Java

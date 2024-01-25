@@ -33,14 +33,14 @@ dependencies {
     implementation files('libs/M3SDK.jar')
 }
 
-// Maven Central에 배포하기 위한 설정
 group = 'com.m3'
 version = '2.1.9'
 
 afterEvaluate {
     publishing {
         publications {
-            mavenAndroid(MavenPublication) {
+            maven(MavenPublication) {
+                // 안드로이드 라이브러리에 맞는 설정
                 from components.release
 
                 groupId = 'com.m3'

@@ -1,9 +1,8 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
 
 android {
     signingConfigs {
-        // 여기에 서명 설정 추가 (필요한 경우)
     }
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
@@ -40,7 +39,6 @@ afterEvaluate {
     publishing {
         publications {
             maven(MavenPublication) {
-                // 안드로이드 라이브러리에 맞는 설정
                 from components.release
 
                 groupId = 'com.m3'

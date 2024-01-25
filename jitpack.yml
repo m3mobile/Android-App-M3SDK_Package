@@ -1,2 +1,5 @@
 before_install:
   - cd M3SDK_Android/M3SDK_Demo/M3SDK-Java
+  -
+jdk:
+  - openjdk11

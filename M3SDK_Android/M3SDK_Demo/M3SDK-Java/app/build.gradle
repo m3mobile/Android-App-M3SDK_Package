@@ -3,10 +3,6 @@ plugins {
     id 'maven-publish'
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'maven-publish'
-
 android {
     signingConfigs {
     }

@@ -5,8 +5,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.1'
-        // JitPack을 위한 maven-publish 플러그인 추가
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
@@ -14,19 +12,5 @@ allprojects {
     repositories {
         jcenter()
         google()
-    }
-}
-
-// Maven Central에 배포하기 위한 설정
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            // 여기에 groupId, artifactId, version 설정
-            groupId = 'com.m3'
-            artifactId = 'm3sdk'
-            version = '2.1.9'
-
-            from components.java
-        }
     }
 }

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'maven-publish'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     signingConfigs {
@@ -29,11 +29,19 @@ dependencies {
     implementation 'com.android.support:support-compat:28.0.0'
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            // groupId, artifactId, version은 상위 build.gradle에서 설정
-            from components.release
+// Maven Central에 배포하기 위한 설정
+group = 'com.m3'
+version = '2.1.9'
+
+afterEvaluate {
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                // 안드로이드 라이브러리에 맞는 설정
+                from components.release
+                groupId = 'com.m3'
+                artifactId = 'm3sdk'
+            }
         }
     }
 }

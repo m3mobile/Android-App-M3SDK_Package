@@ -3,16 +3,19 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     signingConfigs {
+        // 여기에 서명 설정 추가 (필요한 경우)
     }
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
+
     defaultConfig {
         applicationId "com.m3.m3sdk_demo"
         minSdkVersion 18
         targetSdkVersion 28
-        versionName = '2.1.9'
-        versionCode = 19
+        versionCode 19
+        versionName '2.1.9'
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,9 +27,10 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+
     implementation files('libs/M3SDK.jar')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:support-compat:28.0.0'
 }
 
 // Maven Central에 배포하기 위한 설정
@@ -36,11 +40,12 @@ version = '2.1.9'
 afterEvaluate {
     publishing {
         publications {
-            mavenJava(MavenPublication) {
-                // 안드로이드 라이브러리에 맞는 설정
+            mavenAndroid(MavenPublication) {
                 from components.release
+
                 groupId = 'com.m3'
                 artifactId = 'm3sdk'
+                version = '2.1.9'
             }
         }
     }

@@ -64,21 +64,18 @@ public class SystemSDKActivity extends Activity implements View.OnClickListener,
 
     @Override
     public void onClick(View view) {
+        int id = view.getId();
         Intent intent;
-        switch (view.getId()) {
-            case R.id.btn_modem_enable:
+
+        if (id == R.id.btn_modem_enable) {
                 sendBroadcast(new Intent("com.android.server.m3system.modem.enable").putExtra("modem_enable", true));
-                break;
-            case R.id.btn_modem_disable:
+        } else if (id == R.id.btn_modem_disable) {
                 sendBroadcast(new Intent("com.android.server.m3system.modem.enable").putExtra("modem_enable", false));
-                break;
-            case R.id.btn_adb_enable:
+        } else if (id == R.id.btn_adb_enable) {
                 sendBroadcast(new Intent("com.android.server.m3system.adb.enable").putExtra("adb_enable", true));
-                break;
-            case R.id.btn_adb_disable:
+        } else if (id == R.id.btn_adb_disable) {
                 sendBroadcast(new Intent("com.android.server.m3system.adb.enable").putExtra("adb_enable", false));
-                break;
-            case R.id.btn_datetime_set:
+        } else if (id == R.id.btn_datetime_set) {
                 intent = new Intent("com.android.server.m3system.datetime.set");
                 intent.putExtra("datetime_year", Integer.valueOf(editYear.getText().toString()));
                 intent.putExtra("datetime_month", Integer.valueOf(editMonth.getText().toString()));
@@ -87,103 +84,86 @@ public class SystemSDKActivity extends Activity implements View.OnClickListener,
                 intent.putExtra("datetime_minute", Integer.valueOf(editMinute.getText().toString()));
                 intent.putExtra("datetime_second", Integer.valueOf(editSecond.getText().toString()));
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_shortcut_enable:
+        } else if (id == R.id.btn_shortcut_enable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "shortcut");
                 intent.putExtra("accessibility_enable", true);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_shortcut_disable:
+        } else if (id == R.id.btn_shortcut_disable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "shortcut");
                 intent.putExtra("accessibility_enable", false);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_lock_screen_enable:
+        } else if (id == R.id.btn_lock_screen_enable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "lock_screen");
                 intent.putExtra("accessibility_enable", true);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_lock_screen_disable:
+        } else if (id == R.id.btn_lock_screen_disable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "lock_screen");
                 intent.putExtra("accessibility_enable", false);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_magnification_enable:
+        } else if (id == R.id.btn_magnification_enable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "magnification");
                 intent.putExtra("accessibility_enable", true);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_magnification_disable:
+        } else if (id == R.id.btn_magnification_disable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "magnification");
                 intent.putExtra("accessibility_enable", false);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_color_correction_enable:
+        } else if (id == R.id.btn_color_correction_enable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "color_correction");
                 intent.putExtra("accessibility_enable", true);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_color_correction_disable:
+        } else if (id == R.id.btn_color_correction_disable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "color_correction");
                 intent.putExtra("accessibility_enable", false);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_color_inversion_enable:
+        } else if (id == R.id.btn_color_inversion_enable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "color_inversion");
                 intent.putExtra("accessibility_enable", true);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_color_inversion_disable:
+        } else if (id == R.id.btn_color_inversion_disable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "color_inversion");
                 intent.putExtra("accessibility_enable", false);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_large_pointer_enable:
+        } else if (id == R.id.btn_large_pointer_enable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "large_pointer");
                 intent.putExtra("accessibility_enable", true);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_large_pointer_disable:
+        } else if (id == R.id.btn_large_pointer_disable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "large_pointer");
                 intent.putExtra("accessibility_enable", false);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_power_button_enable:
+        } else if (id == R.id.btn_power_button_enable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "power_button_ends_call");
                 intent.putExtra("accessibility_enable", true);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_power_button_disable:
+        } else if (id == R.id.btn_power_button_disable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "power_button_ends_call");
                 intent.putExtra("accessibility_enable", false);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_high_contrast_enable:
+        } else if (id == R.id.btn_high_contrast_enable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "high_contrast");
                 intent.putExtra("accessibility_enable", true);
                 sendBroadcast(intent);
-                break;
-            case R.id.btn_high_contrast_disable:
+        } else if (id == R.id.btn_high_contrast_disable) {
                 intent = new Intent("com.android.server.m3system.accessibility.set");
                 intent.putExtra("accessibility_name", "high_contrast");
                 intent.putExtra("accessibility_enable", false);
                 sendBroadcast(intent);
-                break;
         }
     }
 

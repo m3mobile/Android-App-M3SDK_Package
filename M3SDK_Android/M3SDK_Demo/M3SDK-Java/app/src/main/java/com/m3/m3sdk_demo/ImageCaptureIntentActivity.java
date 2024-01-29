@@ -75,18 +75,15 @@ public class ImageCaptureIntentActivity extends Activity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn_take_picture:
-                if(Build.MODEL.contains("M3SM20")) {
-                    this.sendOrderedBroadcast(new Intent(ConstantValues.SCANNER_ACTION_TAKE_PICTURE2), null);
-                } else {
-                    this.sendOrderedBroadcast(new Intent(ConstantValues.SCANNER_ACTION_TAKE_PICTURE), null);
-                }
-                break;
-            default:
-                break;
+        if (v.getId() == R.id.btn_take_picture) {
+            if (Build.MODEL.contains("M3SM20")) {
+                this.sendOrderedBroadcast(new Intent(ConstantValues.SCANNER_ACTION_TAKE_PICTURE2), null);
+            } else {
+                this.sendOrderedBroadcast(new Intent(ConstantValues.SCANNER_ACTION_TAKE_PICTURE), null);
+            }
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

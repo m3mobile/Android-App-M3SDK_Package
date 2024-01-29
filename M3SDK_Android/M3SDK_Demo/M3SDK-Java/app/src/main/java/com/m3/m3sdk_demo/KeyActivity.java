@@ -160,43 +160,29 @@ public class KeyActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View view) {
 
-		switch(view.getId()){
-		case R.id.btn_key_apply:
-			
-			showToast("onClick apply mIndex: " + mIndex + " / mKeycode: " + mKeycode );
-			switch(mIndex){
-			case 0: // Vol+
+		int id = view.getId();
+		if (id == R.id.btn_key_apply) {
+			showToast("onClick apply mIndex: " + mIndex + " / mKeycode: " + mKeycode);
+			if (mIndex == 0) { // Vol+
 				mKey.VolUp.setKey(mKeycode);
-				break;
-			case 1: // RScan
+			} else if (mIndex == 1) {
 				mKey.RScan.setKey(mKeycode);
-				break;
-			case 2: // Cam
+			} else if (mIndex == 2) {
 				mKey.Cam.setKey(mKeycode);
-				break;
-			case 3: 
-				mKey.LScan.setKey(mKeycode);
-				break;
-			case 4: 
-				mKey.VolDown.setKey(mKeycode);
-				break;
-			case 5:
-				mKey.Home.setKey(mKeycode);
-				break;
-			case 6:
-				mKey.Back.setKey(mKeycode);
-				break;
-			case 7:
-				mKey.Menu.setKey(mKeycode);
-				break;
-			case 8: 
-				mKey.Action.setKey(mKeycode);
-				break;
+			} else if (mIndex == 3) {
+				mKey.Cam.setKey(mKeycode);
+			} else if (mIndex == 4) {
+				mKey.Cam.setKey(mKeycode);
+			} else if (mIndex == 5) {
+				mKey.Cam.setKey(mKeycode);
+			} else if (mIndex == 6) {
+				mKey.Cam.setKey(mKeycode);
+			} else if (mIndex == 7) {
+				mKey.Cam.setKey(mKeycode);
+			} else if (mIndex == 8) {
+				mKey.Cam.setKey(mKeycode);
 			}
-
-		break;
-		case R.id.btn_key_default:
-
+		} else if (id == R.id.btn_key_default) {
 			mKey.VolUp.setDefaultKey();
 			mKey.RScan.setDefaultKey();
 			mKey.Cam.setDefaultKey();
@@ -206,8 +192,6 @@ public class KeyActivity extends Activity implements OnClickListener{
 			mKey.Back.setDefaultKey();
 			mKey.Menu.setDefaultKey();
 			mKey.Action.setDefaultKey();
-			
-			break;			
 		}
 	}
 

@@ -153,98 +153,73 @@ public class ScannerIntentActivity extends Activity {
 
 	}
 
-	OnClickListener OnButtonClickListener = new OnClickListener()
-	{
-		public void onClick(View v)
-		{
+	OnClickListener OnButtonClickListener = new OnClickListener() {
+		public void onClick(View v) {
 			int nButtonId = v.getId();
-
 			Intent intent = null;
-			switch(nButtonId)
-			{
-				case R.id.startread_intent:
-					intent = new Intent(ConstantValues.SCANNER_ACTION_START, null);
-					break;
-				case R.id.stopread_intent:
-					intent = new Intent(ConstantValues.SCANNER_ACTION_CANCEL, null);
-					break;
-				case R.id.enable_intent:
-					intent = new Intent(ConstantValues.SCANNER_ACTION_ENABLE, null);
-					intent.putExtra(ConstantValues.SCANNER_EXTRA_ENABLE, 1);
-					break;
-				case R.id.disable_intent:
-					intent = new Intent(ConstantValues.SCANNER_ACTION_ENABLE, null);
-					intent.putExtra(ConstantValues.SCANNER_EXTRA_ENABLE, 0);
-					break;
-				case R.id.btn_is_enable:
-					intent = new Intent(ConstantValues.SCANNER_ACTION_IS_ENABLE);
-					break;
+			if (nButtonId == R.id.startread_intent) {
+				intent = new Intent(ConstantValues.SCANNER_ACTION_START, null);
+			} else if (nButtonId == R.id.stopread_intent) {
+				intent = new Intent(ConstantValues.SCANNER_ACTION_CANCEL, null);
+			} else if (nButtonId == R.id.enable_intent) {
+				intent = new Intent(ConstantValues.SCANNER_ACTION_ENABLE, null);
+				intent.putExtra(ConstantValues.SCANNER_EXTRA_ENABLE, 1);
+			} else if (nButtonId == R.id.disable_intent) {
+				intent = new Intent(ConstantValues.SCANNER_ACTION_ENABLE, null);
+				intent.putExtra(ConstantValues.SCANNER_EXTRA_ENABLE, 0);
+			} else if (nButtonId == R.id.btn_is_enable) {
+				intent = new Intent(ConstantValues.SCANNER_ACTION_IS_ENABLE);
 			}
 
-			mContext.sendOrderedBroadcast(intent, null);
-
-			intent = null;
-
+			if (intent != null) {
+				mContext.sendOrderedBroadcast(intent, null);
+			}
 		}
 	};
 
-	OnClickListener OnParamClickListener = new OnClickListener()
-	{
-		public void onClick(View v)
-		{
-			int nId = v.getId();
 
+	OnClickListener OnParamClickListener = new OnClickListener() {
+		public void onClick(View v) {
+			int nId = v.getId();
 			Intent intent = null;
 			int num = -1;
 			int val = -1;
 
-			try
-			{
+			try {
 				num = Integer.parseInt(edSymNum.getText().toString());
 				val = Integer.parseInt(edValNum.getText().toString());
-			}
-			catch (NumberFormatException nx)
-			{
+			} catch (NumberFormatException nx) {
 				nx.printStackTrace();
 			}
 
-			switch(nId)
-			{
-				case R.id.buttonGet_intent:
-					intent = new Intent(ConstantValues.SCANNER_ACTION_PARAMETER);
-					intent.putExtra("symbology", num);
-					intent.putExtra("value", -1);
-
-					break;
-				case R.id.buttonSet_intent:
-
-					intent = new Intent(ConstantValues.SCANNER_ACTION_PARAMETER);
-					intent.putExtra("symbology", num);
-					intent.putExtra("value", val);
-
-					break;
+			if (nId == R.id.buttonGet_intent) {
+				intent = new Intent(ConstantValues.SCANNER_ACTION_PARAMETER);
+				intent.putExtra("symbology", num);
+				intent.putExtra("value", -1);
+			} else if (nId == R.id.buttonSet_intent) {
+				intent = new Intent(ConstantValues.SCANNER_ACTION_PARAMETER);
+				intent.putExtra("symbology", num);
+				intent.putExtra("value", val);
 			}
 
-			mContext.sendOrderedBroadcast(intent, null);
+			if (intent != null) {
+				mContext.sendOrderedBroadcast(intent, null);
+			}
 		}
 	};
-	RadioButton.OnClickListener OnSoundClickListener = new RadioButton.OnClickListener(){
+
+	RadioButton.OnClickListener OnSoundClickListener = new RadioButton.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-
 			Intent intent = new Intent(ConstantValues.SCANNER_ACTION_SETTING_CHANGE);
 			intent.putExtra("setting", "sound");
 
-			switch(v.getId()){
-				case R.id.sound_none:
-					intent.putExtra("sound_mode", 0);
-					break;
-				case R.id.sound_beep:
-					intent.putExtra("sound_mode", 1);
-					break;
-				case R.id.sound_dingdong:
-					intent.putExtra("sound_mode", 2);
-					break;
+			if (v.getId() == R.id.sound_none) {
+				intent.putExtra("sound_mode", 0);
+			} else if (v.getId() == R.id.sound_beep) {
+				intent.putExtra("sound_mode", 1);
+			} else if (v.getId() == R.id.sound_dingdong) {
+				intent.putExtra("sound_mode", 2);
 			}
 
 			mContext.sendOrderedBroadcast(intent, null);
@@ -279,106 +254,74 @@ public class ScannerIntentActivity extends Activity {
 
 	};
 
-	RadioButton.OnClickListener OnReadClickListener = new RadioButton.OnClickListener(){
-
+	RadioButton.OnClickListener OnReadClickListener = new RadioButton.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-
-
 			Intent intent = new Intent(ConstantValues.SCANNER_ACTION_SETTING_CHANGE);
 			intent.putExtra("setting", "read_mode");
 
-			switch(v.getId()){
-				case R.id.read_mode_async:
-					intent.putExtra("read_mode_value", 0);
-					break;
-				case R.id.read_mode_sync:
-					intent.putExtra("read_mode_value", 1);
-					break;
-				case R.id.read_mode_continue:
-					intent.putExtra("read_mode_value", 2);
-					break;
-				case R.id.read_mode_multiple:
-					intent.putExtra("read_mode_value", 3);
-					break;
-				case R.id.read_mode_presentation:
-					intent.putExtra("read_mode_value", 4);
-					break;
-				case R.id.read_mode_aiming_release:
-					intent.putExtra("read_mode_value", 5);
-					break;
+			if (v.getId() == R.id.read_mode_async) {
+				intent.putExtra("read_mode_value", 0);
+			} else if (v.getId() == R.id.read_mode_sync) {
+				intent.putExtra("read_mode_value", 1);
+			} else if (v.getId() == R.id.read_mode_continue) {
+				intent.putExtra("read_mode_value", 2);
+			} else if (v.getId() == R.id.read_mode_multiple) {
+				intent.putExtra("read_mode_value", 3);
+			} else if (v.getId() == R.id.read_mode_presentation) {
+				intent.putExtra("read_mode_value", 4);
+			} else if (v.getId() == R.id.read_mode_aiming_release) {
+				intent.putExtra("read_mode_value", 5);
 			}
 
 			mContext.sendOrderedBroadcast(intent, null);
 		}
-
 	};
 
-	RadioButton.OnClickListener OnOutputClickListener = new RadioButton.OnClickListener(){
-
+	RadioButton.OnClickListener OnOutputClickListener = new RadioButton.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-
-
 			Intent intent = new Intent(ConstantValues.SCANNER_ACTION_SETTING_CHANGE);
 			intent.putExtra("setting", "output_mode");
 
-			switch(v.getId()){
-				case R.id.output_mode_copyandpaste:
-					intent.putExtra("output_mode_value", 0);
-					break;
-				case R.id.output_mode_key:
-					intent.putExtra("output_mode_value", 1);
-					break;
-				case R.id.output_mode_none:
-					intent.putExtra("output_mode_value", 2);
-					break;
+			if (v.getId() == R.id.output_mode_copyandpaste) {
+				intent.putExtra("output_mode_value", 0);
+			} else if (v.getId() == R.id.output_mode_key) {
+				intent.putExtra("output_mode_value", 1);
+			} else if (v.getId() == R.id.output_mode_none) {
+				intent.putExtra("output_mode_value", 2);
 			}
 
 			mContext.sendOrderedBroadcast(intent, null);
 		}
-
 	};
 
-
-
-	RadioButton.OnClickListener OnEndClickListener = new RadioButton.OnClickListener(){
-
+	RadioButton.OnClickListener OnEndClickListener = new RadioButton.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-
-
 			Intent intent = new Intent(ConstantValues.SCANNER_ACTION_SETTING_CHANGE);
 			intent.putExtra("setting", "end_char");
 
-			switch(v.getId()){
-				case R.id.end_enter:
-					intent.putExtra("end_char_value", 0);
-					break;
-				case R.id.end_space:
-					intent.putExtra("end_char_value", 1);
-					break;
-				case R.id.end_tab:
-					intent.putExtra("end_char_value", 2);
-					break;
-				case R.id.end_key_enter:
-					intent.putExtra("end_char_value", 3);
-					break;
-				case R.id.end_key_space:
-					intent.putExtra("end_char_value", 4);
-					break;
-				case R.id.end_key_tab:
-					intent.putExtra("end_char_value", 5);
-					break;
-				case R.id.end_none:
-					intent.putExtra("end_char_value", 6);
-					break;
+			if (v.getId() == R.id.end_enter) {
+				intent.putExtra("end_char_value", 0);
+			} else if (v.getId() == R.id.end_space) {
+				intent.putExtra("end_char_value", 1);
+			} else if (v.getId() == R.id.end_tab) {
+				intent.putExtra("end_char_value", 2);
+			} else if (v.getId() == R.id.end_key_enter) {
+				intent.putExtra("end_char_value", 3);
+			} else if (v.getId() == R.id.end_key_space) {
+				intent.putExtra("end_char_value", 4);
+			} else if (v.getId() == R.id.end_key_tab) {
+				intent.putExtra("end_char_value", 5);
+			} else if (v.getId() == R.id.end_none) {
+				intent.putExtra("end_char_value", 6);
 			}
 
 			mContext.sendOrderedBroadcast(intent, null);
 		}
-
 	};
+
 
 	OnClickListener OnFixClickListener = new OnClickListener()
 	{

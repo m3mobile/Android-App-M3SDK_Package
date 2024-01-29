@@ -161,45 +161,40 @@ public class ImageCaptureSettingsActivity extends Activity {
             Intent intent = new Intent(ConstantValues.SCANNER_ACTION_PARAMETER);
             intent.putExtra("symbology", 302);
 
-            switch(v.getId()){
-                case R.id.resolution_full:
-                    intent.putExtra("value", 0);
-                    break;
-                case R.id.resolution_half:
-                    intent.putExtra("value", 1);
-                    break;
-                case R.id.resolution_quarter:
-                    intent.putExtra("value", 3);
-                    break;
+            int id = v.getId();
+            if (id == R.id.resolution_full) {
+                intent.putExtra("value", 0);
+            } else if (id == R.id.resolution_half) {
+                intent.putExtra("value", 1);
+            } else if (id == R.id.resolution_quarter) {
+                intent.putExtra("value", 3);
             }
+
             mContext.sendOrderedBroadcast(intent, null);
         }
-
     };
+
     RadioButton.OnClickListener OnEnhancementClickListener = new RadioButton.OnClickListener(){
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(ConstantValues.SCANNER_ACTION_PARAMETER);
             intent.putExtra("symbology", 564);
 
-            switch(v.getId()){
-                case R.id.enhancement_off:
-                    intent.putExtra("value", 0);
-                    break;
-                case R.id.enhancement_low:
-                    intent.putExtra("value", 1);
-                    break;
-                case R.id.enhancement_medium:
-                    intent.putExtra("value", 2);
-                    break;
-                case R.id.enhancement_high:
-                    intent.putExtra("value", 3);
-                    break;
+            int id = v.getId();
+            if (id == R.id.enhancement_off) {
+                intent.putExtra("value", 0);
+            } else if (id == R.id.enhancement_low) {
+                intent.putExtra("value", 1);
+            } else if (id == R.id.enhancement_medium) {
+                intent.putExtra("value", 2);
+            } else if (id == R.id.enhancement_high) {
+                intent.putExtra("value", 3);
             }
+
             mContext.sendOrderedBroadcast(intent, null);
         }
-
     };
+
 
     @Override
     protected void onResume() {

@@ -113,65 +113,45 @@ public class LRScannerActivity extends Activity {
 
 	}
 
-	OnClickListener OnButtonClickListener = new OnClickListener()
-	{
-		public void onClick(View v)
-		{
+	OnClickListener OnButtonClickListener = new OnClickListener() {
+		public void onClick(View v) {
 			int nButtonId = v.getId();
-
 			Intent intent = null;
-			switch(nButtonId)
-			{
-			case R.id.startread_intent:
+			if (nButtonId == R.id.startread_intent) {
 				intent = new Intent(ConstantValues.LRSCANNER_ACTION_START, null);
-				break;
-			case R.id.stopread_intent:
+			} else if (nButtonId == R.id.stopread_intent) {
 				intent = new Intent(ConstantValues.LRSCANNER_ACTION_CANCEL, null);
-				break;
-			case R.id.enable_intent:
+			} else if (nButtonId == R.id.enable_intent) {
 				intent = new Intent(ConstantValues.LRSCANNER_ACTION_ENABLE, null);
 				intent.putExtra(ConstantValues.SCANNER_EXTRA_ENABLE, 1);
-				break;
-			case R.id.disable_intent:
+			} else if (nButtonId == R.id.disable_intent) {
 				intent = new Intent(ConstantValues.LRSCANNER_ACTION_ENABLE, null);
 				intent.putExtra(ConstantValues.SCANNER_EXTRA_ENABLE, 0);
-				break;
-			case R.id.button_snapShot:
+			} else if (nButtonId == R.id.button_snapShot) {
 				String strPath = edSnapShotPath.getText().toString();
 				intent = new Intent(ConstantValues.LRSCANNER_ACTION_TAKE_PICTURE, null);
 				intent.putExtra(ConstantValues.SCANNER_EXTRA_TAKE_PICTURE_PATH, strPath);
-				break;
-			case R.id.is_opened_intent:
+			} else if (nButtonId == R.id.is_opened_intent) {
 				Log.i(TAG, "is Opened");
 				intent = new Intent(ConstantValues.LRSCANNER_ACTION_IS_ENABLE);
-				break;
 			}
 			mContext.sendOrderedBroadcast(intent, null);
-
-			intent = null;
-
 		}
 	};
 
-	OnClickListener OnSoundClickListener = new OnClickListener(){
+	OnClickListener OnSoundClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-
 			Intent intent = new Intent(ConstantValues.LRSCANNER_ACTION_SETTING_CHANGE);
 			intent.putExtra("setting", "sound");
-
-			switch(v.getId()){
-			case R.id.sound_none:
+			int id = v.getId();
+			if (id == R.id.sound_none) {
 				intent.putExtra("sound_mode", 0);
-				break;
-			case R.id.sound_beep:
+			} else if (id == R.id.sound_beep) {
 				intent.putExtra("sound_mode", 1);
-				break;
-			case R.id.sound_dingdong:
+			} else if (id == R.id.sound_dingdong) {
 				intent.putExtra("sound_mode", 2);
-				break;
 			}
-
 			mContext.sendOrderedBroadcast(intent, null);
 		}
 	};
@@ -190,65 +170,46 @@ public class LRScannerActivity extends Activity {
 
 	};
 
-	OnClickListener OnOutputClickListener = new OnClickListener(){
-
+	OnClickListener OnOutputClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-
 			Intent intent = new Intent(ConstantValues.LRSCANNER_ACTION_SETTING_CHANGE);
 			intent.putExtra("setting", "output_mode");
-
-			switch(v.getId()){
-			case R.id.output_mode_copyandpaste:
+			int id = v.getId();
+			if (id == R.id.output_mode_copyandpaste) {
 				intent.putExtra("output_mode_value", 0);
-				break;
-			case R.id.output_mode_key:
+			} else if (id == R.id.output_mode_key) {
 				intent.putExtra("output_mode_value", 1);
-				break;
-			case R.id.output_mode_none:
+			} else if (id == R.id.output_mode_none) {
 				intent.putExtra("output_mode_value", 2);
-				break;
 			}
-
 			mContext.sendOrderedBroadcast(intent, null);
 		}
-
 	};
 
 
 
-	OnClickListener OnEndClickListener = new OnClickListener(){
-
+	OnClickListener OnEndClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-
 			Intent intent = new Intent(ConstantValues.LRSCANNER_ACTION_SETTING_CHANGE);
-			intent.putExtra("setting", "end_char");		
-			
-			switch(v.getId()){
-			case R.id.end_enter:
-				intent.putExtra("end_char_value", 0);	
-				break;
-			case R.id.end_space:
-				intent.putExtra("end_char_value", 1);	
-				break;
-			case R.id.end_tab:
-				intent.putExtra("end_char_value", 2);	
-				break;
-			case R.id.end_key_enter:
-				intent.putExtra("end_char_value", 3);	
-				break;
-			case R.id.end_key_space:
-				intent.putExtra("end_char_value", 4);	
-				break;
-			case R.id.end_key_tab:
-				intent.putExtra("end_char_value", 5);	
-				break;
-			case R.id.end_none:
-				intent.putExtra("end_char_value", 6);	
-				break;
+			intent.putExtra("setting", "end_char");
+			int id = v.getId();
+			if (id == R.id.end_enter) {
+				intent.putExtra("end_char_value", 0);
+			} else if (id == R.id.end_space) {
+				intent.putExtra("end_char_value", 1);
+			} else if (id == R.id.end_tab) {
+				intent.putExtra("end_char_value", 2);
+			} else if (id == R.id.end_key_enter) {
+				intent.putExtra("end_char_value", 3);
+			} else if (id == R.id.end_key_space) {
+				intent.putExtra("end_char_value", 4);
+			} else if (id == R.id.end_key_tab) {
+				intent.putExtra("end_char_value", 5);
+			} else if (id == R.id.end_none) {
+				intent.putExtra("end_char_value", 6);
 			}
-			
 			mContext.sendOrderedBroadcast(intent, null);
 		}
 		
